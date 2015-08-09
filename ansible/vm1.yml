@@ -5,10 +5,9 @@
     - common
     - apache2
     - sslcert
-    - ganglia
+    - monit
   vars:
     fqdn: vm1.yevhen.net
-    is_ganglia_web: 1
     enable_ssl: true
     ssl_cert_C: US
     ssl_cert_ST: Oregon
