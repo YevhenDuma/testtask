@@ -1,0 +1,37 @@
+import urllib2
+import re
+
+def metric_init(params):
+    global descriptors
+
+    d1 = {'name': 'requests',
+        'call_back': get_requests,
+        'time_max': 10,
+        'value_type': 'uint',
+        'units': 'requests',
+        'slope': 'positive',
+        'format': '%u',
+        'description': 'Requests to app',
+        'groups': 'health'}
+
+    descriptors = [d1]
+
+    return descriptors
+
+def metric_cleanup():
+    '''Clean up the metric module.'''
+    pass
+
+def get_requests (name):
+    req = urllib2.Request('http://{{ app_bind_addr }}:{{ app_port }}/status')
+    response = urllib2.urlopen(req)
+    requests = response.read()
+    regex='<BODY>(.*?)</BODY>'
+    result=re.findall(regex,requests)
+    return int(result[0])
+
+if __name__ == '__main__':
+    metric_init({})
+    for d in descriptors:
+        v = d['call_back'](d['name'])
+        print 'value for %s is %u' % (d['name'],  v)

@@ -1,0 +1,12 @@
+<VirtualHost *:443>
+  ServerName {{ fqdn }}
+
+  SSLEngine on
+  SSLHonorCipherOrder On
+  SSLCompression off
+  SSLCertificateFile {{ ssl_cert_certpath }}
+  SSLCertificateKeyFile {{ ssl_cert_keypath }}
+{% if ssl_cert_certchainpath is defined %}
+  SSLCertificateChainFile {{ ssl_cert_certchainpath }}
+{% endif %}
+</VirtualHost>

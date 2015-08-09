@@ -1,0 +1,20 @@
+---
+- name: install python
+  apt: name=python update_cache=no state=latest
+- name: install python daemon module
+  apt: name=python-daemon update_cache=no state=latest
+- name: install app
+  template:
+    src: "app.j2"
+    dest: "/usr/bin/{{ fqdn }}.py"
+    owner: root
+    group: root
+    mode: 0644
+- name: configure apache proxy
+  template:
+    src: "apache_conf.j2"
+    dest: "/etc/apache2/conf-enabled/app.conf"
+    owner: root
+    group: root
+    mode: 0644
+

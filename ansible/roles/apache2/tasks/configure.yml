@@ -1,0 +1,17 @@
+---
+- name: Add apache vhosts configuration.
+  template:
+    src: "ssl.j2"
+    dest: "/etc/apache2/sites-available/{{ fqdn }}.conf"
+    owner: root
+    group: root
+    mode: 0644
+  when: enable_ssl == true
+
+- name: Add vhost symlink in sites-enabled.
+  file:
+    src: "/etc/apache2/sites-available/{{ fqdn }}.conf"
+    dest: "/etc/apache2/sites-enabled/{{ fqdn }}.conf"
+    state: link
+  notify: restart apache2
+  when: enable_ssl == true

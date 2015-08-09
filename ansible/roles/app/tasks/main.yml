@@ -1,0 +1,5 @@
+---
+- include: install.yml
+  tags: app_install
+- include: start.yml
+  tags: app_start

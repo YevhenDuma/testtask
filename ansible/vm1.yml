@@ -1,0 +1,19 @@
+---
+- hosts: all
+  sudo: true
+  roles:
+    - common
+    - apache2
+    - sslcert
+    - ganglia
+  vars:
+    fqdn: vm1.yevhen.net
+    is_ganglia_web: 1
+    enable_ssl: true
+    ssl_cert_C: US
+    ssl_cert_ST: Oregon
+    ssl_cert_L: Portland
+    ssl_cert_O: IT
+    ssl_cert_days: 365
+    ssl_cert_keypath: /etc/apache2/server.key
+    ssl_cert_certpath: /etc/apache2/server.crt

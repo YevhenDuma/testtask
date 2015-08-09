@@ -1,0 +1,29 @@
+import daemon
+from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
+count = 0
+class RequestHandler(BaseHTTPRequestHandler):
+    def _writeheaders(self):
+        self.send_response(200)
+        self.send_header('Content-type', 'text/html')
+        self.end_headers()
+
+    def do_HEAD(self):
+        self._writeheaders()
+
+    def do_GET(self):
+        global count
+        self._writeheaders()
+	if not "/status" in self.path:
+            count +=1
+        self.wfile.write("""<HTML><HEAD><TITLE>Simple page</TITLE></HEAD>
+        <BODY>"""+ str(count) + """</BODY></HTML>""")
+
+serveraddr = ( '{{ app_bind_addr }}', {{ app_port }})
+server = HTTPServer(serveraddr, RequestHandler)
+daemon_context = daemon.DaemonContext()
+daemon_context.files_preserve = [server.fileno()]
+
+# Become a daemon process.
+with daemon_context:
+    server.serve_forever()
+
