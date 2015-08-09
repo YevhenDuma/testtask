@@ -1,8 +1,8 @@
 # Test task:
-## Used: Vagrant, Ansible, Gangila, Monit
+## Used: Vagrant, Ansible, Ganglia, Monit
 
 This folder contains 3 folders:
-* VM1: folder with vagrant file for first virtual machine and ansible_hosts file
+* VM1: folder with vagrant file for first virtual machine and ansible hosts file
 * VM2: folder with vagrant file for second virtual machine and ansible hosts file
 * ansible: folder with ansible roles.
 
@@ -23,6 +23,7 @@ VM2 is using ports
 * vm1.yml to configure VM1
 * vm2.yml to configure VM2
 * roles: description of roles
+
 ### Ansible roles
 Next roles defined:
 * apache2: to install and configure apache with modules
@@ -54,6 +55,7 @@ Ganglia - role found on githab, README.md still there. Monit partially taken fro
 
 ## Application 
 [URL](https://localhost:11443/app)
+
 I've made simple python application that shows amount of requests since last start. Application is using page /status - to show amount of requests, without incrementing. Port number and bind address configured as variable in main ansible file.
 
 ##SSL
