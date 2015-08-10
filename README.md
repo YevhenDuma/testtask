@@ -49,6 +49,8 @@ Command to run stress/load test:
 * http://localhost:11080/app - application to to access.
 
 ## Monitoring
+[Monit](https://localhost:10443/monit)
+[Genglia](https://localhost:11443/ganglia)
 I've used Ganglia for VM2  and Monit VM1.
 Both doesn't require any login information, such as username or password.
 Ganglia - role found on githab, README.md still there. Monit partially taken from other githab repo.
