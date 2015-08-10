@@ -2,27 +2,27 @@
 ## Used: Vagrant, Ansible, Ganglia, Monit
 
 This folder contains 3 folders:
-* VM1: folder with vagrant file for first virtual machine and ansible hosts file
-* VM2: folder with vagrant file for second virtual machine and ansible hosts file
-* ansible: folder with ansible roles.
+* [VM1](https://github.com/YevhenDuma/testtask/tree/master/VM1): folder with vagrant file for first virtual machine and ansible hosts file
+* [VM2](https://github.com/YevhenDuma/testtask/tree/master/VM2): folder with vagrant file for second virtual machine and ansible hosts file
+* [ansible](https://github.com/YevhenDuma/testtask/tree/master/ansible): folder with ansible roles.
 
 
 ## VM's
 ### VM1
-VM1 is using ports 
+[VM1](https://github.com/YevhenDuma/testtask/blob/master/VM1/Vagrantfile) is using ports 
 * 10022 for ssh
 * 10080 for http
 * 10443 for https
 ### VM2
-VM2 is using ports
+[VM2](https://github.com/YevhenDuma/testtask/blob/master/VM2/Vagrantfile) is using ports
 * 11022 for ssh
 * 11080 for http
 * 11443 for https
 
 ## Ansible
-* vm1.yml to configure VM1
-* vm2.yml to configure VM2
-* roles: description of roles
+* [vm1.yml](https://github.com/YevhenDuma/testtask/blob/master/ansible/vm1.yml) to configure VM1
+* [vm2.yml](https://github.com/YevhenDuma/testtask/blob/master/ansible/vm2.yml) to configure VM2
+* [roles](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles): description of roles
 
 ### Ansible roles
 Next roles defined:
@@ -50,7 +50,9 @@ Command to run stress/load test:
 
 ## Monitoring
 [Monit](https://localhost:10443/monit)
+
 [Genglia](https://localhost:11443/ganglia)
+
 I've used Ganglia for VM2  and Monit VM1.
 Both doesn't require any login information, such as username or password.
 Ganglia - role found on githab, README.md still there. Monit partially taken from other githab repo.
