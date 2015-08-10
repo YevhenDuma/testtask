@@ -13,6 +13,7 @@ This folder contains 3 folders:
 * 10022 for ssh
 * 10080 for http
 * 10443 for https
+
 ### VM2
 [VM2](https://github.com/YevhenDuma/testtask/blob/master/VM2/Vagrantfile) is using ports
 * 11022 for ssh
