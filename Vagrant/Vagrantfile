@@ -1,0 +1,44 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+
+  config.vm.define :vm1 do |cfg|
+    cfg.vm.box = "ubuntu/trusty64"
+    cfg.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    cfg.vm.network "forwarded_port", guest: 22, host: 10022, id: 'ssh'
+    cfg.vm.network "forwarded_port", guest: 80, host: 10080, id: 'http'
+    cfg.vm.network "forwarded_port", guest: 443, host: 10443, id: 'https'
+    cfg.vm.provider :virtualbox do |v|
+      v.name = 'VM1'
+      v.memory = 512
+      v.cpus = 1
+    end 
+    cfg.vm.provision :ansible do |v|
+      v.playbook = "../ansible/vm1.yml"
+      v.inventory_path = "ansible_vm1"
+    end
+  end #End config
+
+#VM2
+  config.vm.define :vm2 do |cfg|
+    cfg.vm.box = "ubuntu/trusty64"
+    cfg.vm.box_url = "https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box"
+    cfg.vm.network "forwarded_port", guest: 22, host: 11022, id: 'ssh'
+    cfg.vm.network "forwarded_port", guest: 80, host: 11080, id: 'http'
+    cfg.vm.network "forwarded_port", guest: 443, host: 11443, id: 'https'
+    cfg.vm.provider :virtualbox do |v|
+      v.name = 'VM2'
+      v.memory = 512
+      v.cpus = 1
+    end
+    cfg.vm.provision :ansible do |v|
+      v.playbook = "../ansible/vm2.yml"
+      v.inventory_path = "ansible_vm2"
+    end
+  end #End config
+end #End Vagrant
