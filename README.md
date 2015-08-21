@@ -1,21 +1,33 @@
 # Test task:
 ## Used: Vagrant, Ansible, Ganglia, Monit
 
-This folder contains 3 folders:
-* [VM1](https://github.com/YevhenDuma/testtask/tree/master/VM1): folder with vagrant file for first virtual machine and ansible hosts file
-* [VM2](https://github.com/YevhenDuma/testtask/tree/master/VM2): folder with vagrant file for second virtual machine and ansible hosts file
+This folder contains next folders:
+* [VM1](https://github.com/YevhenDuma/testtask/tree/master/Vagrant): folder with vagrant file for virtual machines and ansible hosts files
 * [ansible](https://github.com/YevhenDuma/testtask/tree/master/ansible): folder with ansible roles.
 
 
 ## VM's
 ### VM1
-[VM1](https://github.com/YevhenDuma/testtask/blob/master/VM1/Vagrantfile) is using ports 
+
+To start: 
+* navigate to Vagrant folder
+* run next command
+	`vagrant up vm1`
+
+
+VM1 is using next ports:
 * 10022 for ssh
 * 10080 for http
 * 10443 for https
 
 ### VM2
-[VM2](https://github.com/YevhenDuma/testtask/blob/master/VM2/Vagrantfile) is using ports
+
+To start: 
+* navigate to Vagrant folder
+* run next command
+        `vagrant up vm2`
+
+VM2 is using next ports:
 * 11022 for ssh
 * 11080 for http
 * 11443 for https
