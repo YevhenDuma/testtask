@@ -1,0 +1,10 @@
+# python application service 
+
+description     "Python application"
+start on runlevel [2345]
+stop on starting rc RUNLEVEL=[016]
+
+
+script
+    exec /usr/bin/python /usr/bin/{{ fqdn }}.py
+end script 

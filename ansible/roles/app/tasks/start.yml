@@ -1,3 +1,0 @@
----
-- name: Start app
-  command: python /usr/bin/{{ fqdn }}.py > /var/log/app.log 2>&1 
