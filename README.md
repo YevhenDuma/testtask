@@ -50,8 +50,8 @@ Next roles defined:
 To start any vagrant virtual machine you need:
 * install VirtualBox
 * install Vagrant, tested on vagrant 1.4.3
-* navigate to Vagrant directory (VM1 or VM2) and run:
-	`vagrant up`
+* navigate to Vagrant directory and run:
+	`vagrant up <vm1 or vm2>`
 
 ## Tests
 To run stress/load tests you will need apache benchmark installed.
@@ -75,5 +75,13 @@ Ganglia - role found on githab, README.md still there. Monit partially taken fro
 
 I've made simple python application that shows amount of requests since last start. Application is using page /status - to show amount of requests, without incrementing. Port number and bind address configured as variable in main ansible file.
 
+Ansible will install application as upstart. 
+To check status run:
+`status app`
+To restart:
+`restart app`
+
+
 ##SSL
 There is ansible role that creates self-signed ssl certificate. Certificate details could be changed in vm.yml
+Both VM's using port 443(https).
