@@ -9,6 +9,8 @@
   vars:
     fqdn: vm1.yevhen.net
     enable_ssl: true
+    ssl_cert_user: www-data
+    ssl_cert_mode: 0400
     ssl_cert_C: US
     ssl_cert_ST: Oregon
     ssl_cert_L: Portland

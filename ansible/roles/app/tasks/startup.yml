@@ -2,7 +2,7 @@
 - name: Add app to startup
   template:
     src: "init.d.j2"
-    dest: "/etc/init/app.conf"
+    dest: "/etc/init/{{ app_daemon_name}}.conf"
     owner: root
     group: root
     mode: 0644

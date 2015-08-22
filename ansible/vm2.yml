@@ -12,9 +12,12 @@
     app_port: 8765
     app_bind_addr: 127.0.0.1
     app_location: app
+    app_daemon_name: app
     app_monitoring: true
     is_ganglia_web: 1
     enable_ssl: true
+    ssl_cert_user: www-data
+    ssl_cert_mode: go-rwx
     ssl_cert_C: US
     ssl_cert_ST: Oregon
     ssl_cert_L: Portland
