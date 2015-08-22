@@ -2,7 +2,7 @@
 ## Used: Vagrant, Ansible, Ganglia, Monit
 
 This folder contains next folders:
-* [VM1](https://github.com/YevhenDuma/testtask/tree/master/Vagrant): folder with vagrant file for virtual machines and ansible hosts files
+* [Vagrant](https://github.com/YevhenDuma/testtask/tree/master/Vagrant): folder with vagrant file for virtual machines and ansible hosts files
 * [ansible](https://github.com/YevhenDuma/testtask/tree/master/ansible): folder with ansible roles.
 
 
@@ -13,6 +13,13 @@ To start:
 * navigate to Vagrant folder
 * run next command
 	`vagrant up vm1`
+
+
+Roles:
+* common
+* apache2
+* sslcert
+* ganglia
 
 
 VM1 is using next ports:
@@ -27,10 +34,19 @@ To start:
 * run next command
         `vagrant up vm2`
 
+
+Roles:
+* common
+* apache2
+* sslcert
+* app
+
+
 VM2 is using next ports:
 * 11022 for ssh
 * 11080 for http
 * 11443 for https
+
 
 ## Ansible
 * [vm1.yml](https://github.com/YevhenDuma/testtask/blob/master/ansible/vm1.yml) to configure VM1
@@ -43,7 +59,6 @@ Next roles defined:
 * app: install and configure custom python application
 * common: some common tasks, like apt-get update
 * ganglia: install and configure ganglia monitoring tool
-* monit: install and configure monit monitoring tool
 * sslcert: create self-signed ssl certificate
 
 ## Start
@@ -68,18 +83,17 @@ To check results:
 ![ScreenShot](https://cloud.githubusercontent.com/assets/4558068/9425688/93176818-4922-11e5-8124-e04068d884d8.png)
 
 ## Monitoring
-[Monit](https://localhost:10443/monit)
+[Genglia](https://localhost:10443/ganglia)
 
-[Genglia](https://localhost:11443/ganglia)
+I've used Ganglia.  It doesn't require any login information, such as username or password.
+This role I've found on githab, README.md still there. 
+I've created custome module for ganglia, that call's url, parce results and sends them to ganglia server. Ganglia shows delta - difference between previous value and current. Threshold defined as variables inside vm1.yml
 
-I've used Ganglia for VM2  and Monit VM1.
-Both doesn't require any login information, such as username or password.
-Ganglia - role found on githab, README.md still there. Monit partially taken from other githab repo.
 
 ## Application 
 [URL](https://localhost:11443/app)
 
-I've made simple python application that shows amount of requests since last start. Application is using page /status - to show amount of requests, without incrementing. Port number and bind address configured as variable in main ansible file.
+I've made simple python application that shows amount of requests since last start. Application is using page [/status](https://localhost:11443/app/status) - to show amount of requests, without incrementing. Port number and bind address configured as variable in main ansible file.
 
 Ansible will install application as upstart. 
 To check status run:
