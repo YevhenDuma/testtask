@@ -1,3 +1,4 @@
+module_python_path: "/etc/ganglia/conf.d/modpython.conf"
 
 # Path component of the URL of the web interface.
 ganglia_web_location: /ganglia
@@ -67,7 +68,6 @@ ganglia_config_gmetad:
 
 # Ganglia Monitors
   
-  
 ganglia_config_gmond:
   
 # Mandatory parameters.
@@ -133,10 +133,6 @@ ganglia_config_gmond:
         
         - name: 'cpu_module'
           path: '{{ ganglia_lib_dir }}/modcpu.so'
-
-        - name: 'python_module'
-          path: '{{ ganglia_lib_dir }}/modpython.so'
-          paras: '{{ ganglia_lib_dir }}/python_modules'
 
         - name: 'disk_module'
           path: '{{ ganglia_lib_dir }}/moddisk.so'

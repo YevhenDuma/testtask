@@ -61,6 +61,12 @@ Command to run stress/load test:
 * -n 1000000 means 1M requests
 * http://localhost:11080/app - application to to access.
 
+To check results:
+* access [ganglia monitorint tool](https://localhost:11443/ganglia)
+* in metrics find app_requests
+
+Results: (https://cloud.githubusercontent.com/assets/4558068/9425688/93176818-4922-11e5-8124-e04068d884d8.png)
+
 ## Monitoring
 [Monit](https://localhost:10443/monit)
 

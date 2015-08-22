@@ -188,6 +188,10 @@ modules {
 }
 {% endif %}
 
+{% if module_python_path is defined %}
+include ("{{ module_python_path }}")
+{% endif %}
+
 {% if item.value.collection_groups is defined %}
 /* The old internal 2.5.x metric array has been replaced by the following
    collection_group directives.  What follows is the default behavior for

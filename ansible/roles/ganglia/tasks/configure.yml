@@ -56,7 +56,7 @@
 - name: Add application monitoring script
   template: >-
     src=app-custom.j2
-    dest={{ ganglia_lib_dir }}/python_modules/app.py
+    dest={{ ganglia_lib_dir }}/python_modules/app_requests.py
     owner=root
     group=root
     mode=0644
@@ -65,7 +65,7 @@
 - name: Add application monitoring config
   template: >-
     src=app-custom-config.j2
-    dest={{ ganglia_config_dir }}/conf.d/gmond-app.pyconf
+    dest={{ ganglia_config_dir }}/conf.d/app_requests.pyconf
     owner=root
     group=root
     mode=0644

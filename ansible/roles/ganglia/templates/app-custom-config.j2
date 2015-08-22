@@ -1,15 +1,7 @@
 modules {
   module {
-    name = "app"
+    name = "app_requests"
     language = "python"
-    # The following params are examples only
-    #  They are not actually used by the temp module
-    param RandomMax {
-      value = 600
-    }
-    param ConstantValue {
-      value = 1
-    }
   }
 }
 
@@ -17,7 +9,7 @@ collection_group {
   collect_every = 10
   time_threshold = 50
   metric {
-    name = "app"
+    name = "app_requests"
     title = "Application requests"
     value_threshold = 100
   }
