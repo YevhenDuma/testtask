@@ -6,7 +6,6 @@
     - apache2
     - sslcert
     - app
-    - ganglia
   vars:
     fqdn: vm2.yevhen.net
     app_port: 8765

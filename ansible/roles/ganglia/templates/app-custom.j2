@@ -23,7 +23,7 @@ def metric_cleanup():
     pass
 
 def get_requests (name):
-    req = urllib2.Request('http://{{ app_bind_addr }}:{{ app_port }}/status')
+    req = urllib2.Request('{{ app_monitoring_url }}')
     response = urllib2.urlopen(req)
     requests = response.read()
     regex='<BODY>(.*?)</BODY>'
