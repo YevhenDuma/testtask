@@ -10,6 +10,9 @@
     fqdn: vm1.yevhen.net
     app_monitoring_url: "http://10.0.2.2:11080/app/status"
     app_monitoring: true
+    app_collection_time: 10
+    app_time_threshold: 20
+    app_value_threshold: 10
     is_ganglia_web: 1
     enable_ssl: true
     ssl_cert_user: www-data
