@@ -8,19 +8,24 @@
     - app
   vars:
     fqdn: vm2.yevhen.net
-    app_port: 8765
-    app_bind_addr: 127.0.0.1
-    app_location: app
-    app_daemon_name: app
-    app_monitoring: true
-    is_ganglia_web: 1
-    enable_ssl: true
-    ssl_cert_user: www-data
-    ssl_cert_mode: go-rwx
-    ssl_cert_C: US
-    ssl_cert_ST: Oregon
-    ssl_cert_L: Portland
-    ssl_cert_O: IT
-    ssl_cert_days: 365
-    ssl_cert_keypath: /etc/apache2/server.key
-    ssl_cert_certpath: /etc/apache2/server.crt
+#Variables related to application
+    app:
+      port: 8765
+      bind_addr: 127.0.0.1
+      web_location: app
+      daemon_name: app
+      status_page: /status
+# Variables related to SSL
+    ssl: 
+      enable: true
+      cert: 
+        user: www-data
+        mode: o-rwx
+        C: US
+        ST: Oregon
+        L: Portland
+        O: IT
+        days: 365
+        path:
+          key: /etc/apache2/server.key
+          cert: /etc/apache2/server.crt

@@ -13,12 +13,12 @@ class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         global count
         self._writeheaders()
-	if not "/status" in self.path:
+	if not "{{ app.status_page }}" in self.path:
             count +=1
         self.wfile.write("""<HTML><HEAD><TITLE>Simple page</TITLE></HEAD>
         <BODY>"""+ str(count) + """</BODY></HTML>""")
 
-serveraddr = ( '{{ app_bind_addr }}', {{ app_port }})
+serveraddr = ( '{{ app.bind_addr }}', {{ app.port }})
 server = HTTPServer(serveraddr, RequestHandler)
 daemon_context = daemon.DaemonContext()
 daemon_context.files_preserve = [server.fileno()]

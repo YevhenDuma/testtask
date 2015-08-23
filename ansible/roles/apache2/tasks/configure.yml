@@ -6,7 +6,7 @@
     owner: root
     group: root
     mode: 0644
-  when: enable_ssl == true
+  when: ssl.enable == true
 
 - name: Add vhost symlink in sites-enabled.
   file:
@@ -14,4 +14,4 @@
     dest: "/etc/apache2/sites-enabled/{{ fqdn }}.conf"
     state: link
   notify: restart apache2
-  when: enable_ssl == true
+  when: ssl.enable == true

@@ -1,5 +1,5 @@
 ---
 - name: create self-signed SSL cert
-  command: openssl req -new -nodes -x509 -subj "/C={{ ssl_cert_C }}/ST={{ ssl_cert_ST }}/L={{ ssl_cert_L }}/O={{ ssl_cert_O }}/CN={{ fqdn }}" -days {{ ssl_cert_days }} -keyout {{ ssl_cert_keypath }} -out {{ ssl_cert_certpath }} -extensions v3_ca creates={{ ssl_cert_certpath }}
+  command: openssl req -new -nodes -x509 -subj "/C={{ ssl.cert.C }}/ST={{ ssl.cert.ST }}/L={{ ssl.cert.L }}/O={{ ssl.cert.O }}/CN={{ fqdn }}" -days {{ ssl.cert.days }} -keyout {{ ssl.cert.path.key }} -out {{ ssl.cert.path.cert }} -extensions v3_ca creates={{ ssl.cert.path.cert }}
 - name: change file permissions
-  file: path={{ ssl_cert_keypath }} owner={{ ssl_cert_user }} group={{ ssl_cert_user }} mode={{ ssl_cert_mode }}
+  file: path={{ ssl.cert.path.key }} owner={{ ssl.cert.user }} group={{ ssl.cert.user }} mode={{ ssl.cert.mode }}

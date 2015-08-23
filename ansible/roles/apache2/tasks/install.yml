@@ -9,4 +9,4 @@
   apache2_module: name=ssl state=present
   notify:
     - restart apache2
-  when: enable_ssl == true
+  when: ssl.enable == true

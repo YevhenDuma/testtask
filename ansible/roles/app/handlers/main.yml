@@ -1,4 +1,4 @@
 ---
 - name: restart app 
-  service: name={{ app_daemon_name }} state=restarted
+  service: name={{ app.daemon_name }} state=restarted
 
