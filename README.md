@@ -16,10 +16,10 @@ To start:
 
 
 Roles:
-* common
-* apache2
-* sslcert
-* ganglia
+* [common](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/common)
+* [apache2](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/apache2)
+* [sslcert](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/sslcert)
+* [ganglia](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/ganglia)
 
 
 VM1 is using next ports:
@@ -36,10 +36,10 @@ To start:
 
 
 Roles:
-* common
-* apache2
-* sslcert
-* app
+* [common](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/common)
+* [apache2](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/apache2)
+* [sslcert](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/sslcert)
+* [app](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/app)
 
 
 VM2 is using next ports:
@@ -77,7 +77,7 @@ Command to run stress/load test:
 * http://localhost:11080/app - application to to access.
 
 To check results:
-* access [ganglia monitorint tool](https://localhost:11443/ganglia)
+* access [ganglia monitorint tool](https://localhost:10443/ganglia)
 * in metrics find app_requests
 
 ![ScreenShot](https://cloud.githubusercontent.com/assets/4558068/9425688/93176818-4922-11e5-8124-e04068d884d8.png)
@@ -91,7 +91,7 @@ I've created custome module for ganglia, that call's url, parce results and send
 
 
 ## Application 
-[URL](https://localhost:11443/app)
+[Application](https://localhost:11443/app)
 
 I've made simple python application that shows amount of requests since last start. Application is using page [/status](https://localhost:11443/app/status) - to show amount of requests, without incrementing. Port number and bind address configured as variable in main ansible file.
 
@@ -103,5 +103,4 @@ To restart:
 
 
 ##SSL
-There is ansible role that creates self-signed ssl certificate. Certificate details could be changed in vm.yml
-Both VM's using port 443(https).
+There is ansible role that creates self-signed ssl certificate. Certificate details could be changed in playbook.Both VM's using port 443(https).
