@@ -54,12 +54,12 @@ VM2 is using next ports:
 * [roles](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles): description of roles
 
 ### Ansible roles
-Next roles defined:
-* apache2: to install and configure apache with modules
-* app: install and configure custom python application
-* common: some common tasks, like apt-get update
-* ganglia: install and configure ganglia monitoring tool
-* sslcert: create self-signed ssl certificate
+Next roles defined and described:
+* [apache2](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/apache2): to install and configure apache with modules
+* [app](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/app): install and configure custom python application
+* [common](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/common): some common tasks, like apt-get update
+* [ganglia](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/ganglia): install and configure ganglia monitoring tool
+* [sslcert](https://github.com/YevhenDuma/testtask/tree/master/ansible/roles/sslcert): create self-signed ssl certificate
 
 ## Start
 To start any vagrant virtual machine you need:

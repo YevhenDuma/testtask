@@ -1,16 +1,16 @@
 modules {
   module {
-    name = "app_requests"
+    name = "{{ app.name }}"
     language = "python"
   }
 }
 
 collection_group {
-  collect_every = {{ app_collection_time }}
-  time_threshold = {{ app_time_threshold }}
+  collect_every = {{ app.collection_time }}
+  time_threshold = {{ app.time_threshold }}
   metric {
-    name = "app_requests"
+    name = "{{ app.name }}"
     title = "Application requests"
-    value_threshold = {{ app_value_threshold }}
+    value_threshold = {{ app.value_threshold }}
   }
 }

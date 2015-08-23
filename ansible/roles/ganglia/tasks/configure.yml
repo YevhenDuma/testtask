@@ -56,20 +56,20 @@
 - name: Add application monitoring script
   template: >-
     src=app-custom.j2
-    dest={{ ganglia_lib_dir }}/python_modules/app_requests.py
+    dest={{ ganglia_lib_dir }}/python_modules/{{ app.name }}.py
     owner=root
     group=root
     mode=0644
-  when: app_monitoring == true
+  when: app.monitoring == true
 
 - name: Add application monitoring config
   template: >-
     src=app-custom-config.j2
-    dest={{ ganglia_config_dir }}/conf.d/app_requests.pyconf
+    dest={{ ganglia_config_dir }}/conf.d/{{ app.name }}.pyconf
     owner=root
     group=root
     mode=0644
-  when: app_monitoring == true
+  when: app.monitoring == true
 
 - name: Install init scripts for Ganglia Monitors
   template: >-

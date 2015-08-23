@@ -4,7 +4,7 @@ import re
 def metric_init(params):
     global descriptors
 
-    d1 = {'name': 'app_requests',
+    d1 = {'name': '{{ app.name }}',
         'call_back': get_requests,
         'time_max': 10,
         'value_type': 'uint',
@@ -23,7 +23,7 @@ def metric_cleanup():
     pass
 
 def get_requests (name):
-    req = urllib2.Request('{{ app_monitoring_url }}')
+    req = urllib2.Request('{{ app.monitoring_url }}')
     response = urllib2.urlopen(req)
     requests = response.read()
     regex='<BODY>(.*?)</BODY>'
